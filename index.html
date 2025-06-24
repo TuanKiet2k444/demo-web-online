@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <!-- Giao diện popup login/register -->
   <link rel="stylesheet" href="login.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
   <!-- Header: Thanh menu trên cùng -->
@@ -20,12 +21,10 @@
         <a href="#">Messages</a>
       </nav>
       <div class="header-actions" id="headerActions">
-        <!-- Nút đăng nhập/đăng ký/đăng xuất sẽ tự động thay đổi bằng JS -->
         <button class="btn secondary" onclick="showRegisterPopup()">Sign Up</button>
         <button class="btn" onclick="showLoginPopup()">Login</button>
       </div>
       <div class="header-user" id="headerUser" style="display:none;">
-        <!-- Khi đăng nhập sẽ hiện tên user và nút Đăng xuất -->
         <span id="headerUsername"></span>
         <button class="btn" onclick="logout()">Logout</button>
       </div>
@@ -37,11 +36,12 @@
     <main>
       <h1>Million Dollar Home Listings</h1>
       <div class="listing-grid">
-        <!-- Card 1 -->
+        <!-- Các card nhà giữ nguyên như bạn đã làm -->
+        <!-- ... (copy phần card của bạn ở đây) ... -->
         <div class="listing-card">
           <img class="listing-img"
-               src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
-               alt="House 1">
+            src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+            alt="House 1">
           <div class="listing-info">
             <div class="listing-header">
               <span class="listing-price">$4,270,000</span>
@@ -66,98 +66,13 @@
             <div class="listing-desc">Content of media heading</div>
           </div>
         </div>
-        <!-- Card 2 -->
-        <div class="listing-card">
-          <img class="listing-img"
-               src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-               alt="House 2">
-          <div class="listing-info">
-            <div class="listing-header">
-              <span class="listing-price">$3,915,000</span>
-              <button class="listing-share" title="Share">
-                <svg height="20" width="20" viewBox="0 0 24 24"><path fill="#888" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.03-.47-.09-.7l7.02-4.11A2.99 2.99 0 0 0 18 7.91c1.66 0 3 1.34 3 3s-1.34 3-3 3zm-12 2c-1.66 0-3-1.34-3-3s1.34-3 3-3c.23 0 .46.03.7.09l7.02 4.11c-.05.22-.08.45-.08.7s.03.48.09.7l-7.02 4.11c-.24-.06-.47-.09-.71-.09z"/></svg>
-              </button>
-            </div>
-            <div class="listing-details-row">
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M12 7c-2.76 0-5 2.24-5 5 0 3.31 5 9 5 9s5-5.69 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                4,820 SqFt
-              </span>
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M20 8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm-9-2h6v2h-6V6zm9 10H4v-8h3v2h10V8h3v8z"/></svg>
-                4,820 SqFt
-              </span>
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M7 20v-2h10v2H7zm9.78-7.37c-.21-.16-.48-.22-.74-.16-.26.06-.47.22-.59.45L14 15.06V9c0-.55-.45-1-1-1s-1 .45-1 1v6.06l-1.45-2.14c-.12-.23-.33-.39-.59-.45-.26-.06-.53 0-.74.16-.21.16-.33.41-.33.67v3c0 .55.45 1 1 1s1-.45 1-1v-1.06l1.45 2.14c.12.23.33.39.59.45.26.06.53 0 .74-.16.21-.16.33-.41.33-.67v-3c0-.26-.12-.51-.33-.67z"/></svg>
-                5 Baths
-              </span>
-            </div>
-            <div class="listing-desc">Content of media heading</div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="listing-card">
-          <img class="listing-img"
-               src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80"
-               alt="House 3">
-          <div class="listing-info">
-            <div class="listing-header">
-              <span class="listing-price">$4,270,000</span>
-              <button class="listing-share" title="Share">
-                <svg height="20" width="20" viewBox="0 0 24 24"><path fill="#888" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.03-.47-.09-.7l7.02-4.11A2.99 2.99 0 0 0 18 7.91c1.66 0 3 1.34 3 3s-1.34 3-3 3zm-12 2c-1.66 0-3-1.34-3-3s1.34-3 3-3c.23 0 .46.03.7.09l7.02 4.11c-.05.22-.08.45-.08.7s.03.48.09.7l-7.02 4.11c-.24-.06-.47-.09-.71-.09z"/></svg>
-              </button>
-            </div>
-            <div class="listing-details-row">
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M12 7c-2.76 0-5 2.24-5 5 0 3.31 5 9 5 9s5-5.69 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                4,820 SqFt
-              </span>
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M20 8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm-9-2h6v2h-6V6zm9 10H4v-8h3v2h10V8h3v8z"/></svg>
-                4,820 SqFt
-              </span>
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M7 20v-2h10v2H7zm9.78-7.37c-.21-.16-.48-.22-.74-.16-.26.06-.47.22-.59.45L14 15.06V9c0-.55-.45-1-1-1s-1 .45-1 1v6.06l-1.45-2.14c-.12-.23-.33-.39-.59-.45-.26-.06-.53 0-.74.16-.21.16-.33.41-.33.67v3c0 .55.45 1 1 1s1-.45 1-1v-1.06l1.45 2.14c.12.23.33.39.59.45.26.06.53 0 .74-.16.21-.16.33-.41.33-.67v-3c0-.26-.12-.51-.33-.67z"/></svg>
-                5 Baths
-              </span>
-            </div>
-            <div class="listing-desc">Content of media heading</div>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="listing-card">
-          <img class="listing-img"
-               src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=600&q=80"
-               alt="House 4">
-          <div class="listing-info">
-            <div class="listing-header">
-              <span class="listing-price">$4,270,000</span>
-              <button class="listing-share" title="Share">
-                <svg height="20" width="20" viewBox="0 0 24 24"><path fill="#888" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.03-.47-.09-.7l7.02-4.11A2.99 2.99 0 0 0 18 7.91c1.66 0 3 1.34 3 3s-1.34 3-3 3zm-12 2c-1.66 0-3-1.34-3-3s1.34-3 3-3c.23 0 .46.03.7.09l7.02 4.11c-.05.22-.08.45-.08.7s.03.48.09.7l-7.02 4.11c-.24-.06-.47-.09-.71-.09z"/></svg>
-              </button>
-            </div>
-            <div class="listing-details-row">
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M12 7c-2.76 0-5 2.24-5 5 0 3.31 5 9 5 9s5-5.69 5-9c0-2.76-2.24-5-5-5zm0 6.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                4,820 SqFt
-              </span>
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M20 8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm-9-2h6v2h-6V6zm9 10H4v-8h3v2h10V8h3v8z"/></svg>
-                4,820 SqFt
-              </span>
-              <span>
-                <svg height="16" width="16" viewBox="0 0 24 24"><path fill="#444" d="M7 20v-2h10v2H7zm9.78-7.37c-.21-.16-.48-.22-.74-.16-.26.06-.47.22-.59.45L14 15.06V9c0-.55-.45-1-1-1s-1 .45-1 1v6.06l-1.45-2.14c-.12-.23-.33-.39-.59-.45-.26-.06-.53 0-.74.16-.21.16-.33.41-.33.67v3c0 .55.45 1 1 1s1-.45 1-1v-1.06l1.45 2.14c.12.23.33.39.59.45.26.06.53 0 .74-.16.21-.16.33-.41.33-.67v-3c0-.26-.12-.51-.33-.67z"/></svg>
-                5 Baths
-              </span>
-            </div>
-            <div class="listing-desc">Content of media heading</div>
-          </div>
-        </div>
+        <!-- ...Thêm các card khác như bạn đã có... -->
+        <!-- Bạn có thể copy toàn bộ phần listing-grid của bạn vào đây -->
       </div>
     </main>
   </div>
 
-  <!-- Popup login/register (chỉ hiện 1 trong 2, qua JS) -->
+  <!-- Popup login/register -->
   <div id="loginPopup" style="display:none;">
     <div id="loginPopupBg">
       <!-- Popup Đăng nhập -->
@@ -166,7 +81,7 @@
         <h2>Login</h2>
         <div id="loginStatusMsg" style="display:none;"></div>
         <div class="input-center-group">
-          <input type="text" id="loginUsername" placeholder="Username" required autocomplete="username">
+          <input type="email" id="loginEmail" placeholder="Email" required autocomplete="username">
           <input type="password" id="loginPassword" placeholder="Password" required autocomplete="current-password">
         </div>
         <button type="submit">Login</button>
@@ -176,37 +91,151 @@
         </div>
       </form>
       <!-- Popup Đăng ký -->
-    <!-- ...trích đoạn popup đăng ký thay thế vào index.html, các phần khác giữ nguyên... -->
-<form id="registerPopupContent" style="display:none;" onsubmit="handleRegister(event);">
-  <button type="button" class="close-btn" onclick="hideRegisterPopup()">&times;</button>
-  <h2>User Registration</h2>
-  <div id="registerStatusMsg" style="display:none;"></div>
-  <div class="input-center-group">
-    <label for="registerFirstName">First name</label>
-    <input type="text" id="registerFirstName" placeholder="First name" required autocomplete="given-name">
+      <form id="registerPopupContent" style="display:none;" onsubmit="handleRegister(event);">
+        <button type="button" class="close-btn" onclick="hideRegisterPopup()">&times;</button>
+        <h2>User Registration</h2>
+        <div id="registerStatusMsg" style="display:none;"></div>
+        <div class="input-center-group">
+          <label for="registerFirstName">First name</label>
+          <input type="text" id="registerFirstName" placeholder="First name" required autocomplete="given-name">
 
-    <label for="registerLastName">Last name</label>
-    <input type="text" id="registerLastName" placeholder="Last name" required autocomplete="family-name">
+          <label for="registerLastName">Last name</label>
+          <input type="text" id="registerLastName" placeholder="Last name" required autocomplete="family-name">
 
-    <label for="registerEmail">Email address</label>
-    <input type="email" id="registerEmail" placeholder="Email address" required autocomplete="email">
+          <label for="registerEmail">Email address</label>
+          <input type="email" id="registerEmail" placeholder="Email address" required autocomplete="email">
 
-    <label for="registerPassword">Password</label>
-    <input type="password" id="registerPassword" placeholder="Input password" required autocomplete="new-password">
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" placeholder="Input password" required autocomplete="new-password">
 
-    <label for="registerPassword2">Confirmation</label>
-    <input type="password" id="registerPassword2" placeholder="Input confirm" required autocomplete="new-password">
-  </div>
-  <button type="submit" class="register-btn">Register</button>
-  <div class="popup-switch">
-    <span>Already have an account?</span>
-    <a href="#" onclick="switchToLogin(event)">Login</a>
-  </div>
-</form>
+          <label for="registerPassword2">Confirmation</label>
+          <input type="password" id="registerPassword2" placeholder="Input confirm" required autocomplete="new-password">
+        </div>
+        <button type="submit" class="register-btn">Register</button>
+        <div class="popup-switch">
+          <span>Already have an account?</span>
+          <a href="#" onclick="switchToLogin(event)">Login</a>
+        </div>
+      </form>
     </div>
   </div>
 
-  <!-- Script chức năng popup login/register -->
-  <script src="login.js"></script>
+  <!-- Script chức năng popup login/register và Supabase Auth -->
+  <script>
+    // ==== THAY BẰNG THÔNG TIN CỦA BẠN ====
+    const SUPABASE_URL = "https://pgfldsfptndyrnqareza.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJh..."; // Dán api key anon public đầy đủ từ Supabase
+
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Popup logic
+    function showLoginPopup() {
+      document.getElementById('loginPopup').style.display = 'flex';
+      document.getElementById('loginPopupContent').style.display = 'block';
+      document.getElementById('registerPopupContent').style.display = 'none';
+    }
+    function hideLoginPopup() {
+      document.getElementById('loginPopup').style.display = 'none';
+      document.getElementById('loginStatusMsg').style.display = 'none';
+      document.getElementById('loginStatusMsg').innerText = '';
+    }
+    function showRegisterPopup() {
+      document.getElementById('loginPopup').style.display = 'flex';
+      document.getElementById('registerPopupContent').style.display = 'block';
+      document.getElementById('loginPopupContent').style.display = 'none';
+    }
+    function hideRegisterPopup() {
+      document.getElementById('loginPopup').style.display = 'none';
+      document.getElementById('registerStatusMsg').style.display = 'none';
+      document.getElementById('registerStatusMsg').innerText = '';
+    }
+    function switchToRegister(e) {
+      e.preventDefault();
+      showRegisterPopup();
+    }
+    function switchToLogin(e) {
+      e.preventDefault();
+      showLoginPopup();
+    }
+
+    // Hiển thị tên user khi đăng nhập
+    function showUserUI(email) {
+      document.getElementById('headerActions').style.display = 'none';
+      document.getElementById('headerUser').style.display = 'flex';
+      document.getElementById('headerUsername').innerText = email;
+    }
+    function showGuestUI() {
+      document.getElementById('headerActions').style.display = 'flex';
+      document.getElementById('headerUser').style.display = 'none';
+      document.getElementById('headerUsername').innerText = '';
+    }
+
+    // Đăng ký
+    async function handleRegister(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('registerFirstName').value.trim();
+      const lastName = document.getElementById('registerLastName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value;
+      const password2 = document.getElementById('registerPassword2').value;
+      const registerStatusMsg = document.getElementById('registerStatusMsg');
+      if (password !== password2) {
+        registerStatusMsg.style.display = 'block';
+        registerStatusMsg.innerText = "Passwords do not match!";
+        return;
+      }
+      // Đăng ký với Supabase Auth
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: {
+            first_name: firstName,
+            last_name: lastName
+          }
+        }
+      });
+      registerStatusMsg.style.display = 'block';
+      if (error) {
+        registerStatusMsg.innerText = error.message;
+      } else {
+        registerStatusMsg.innerText = "Registration successful! Please check your email to verify.";
+      }
+    }
+
+    // Đăng nhập
+    async function handleLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const loginStatusMsg = document.getElementById('loginStatusMsg');
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      loginStatusMsg.style.display = 'block';
+      if (error) {
+        loginStatusMsg.innerText = error.message || "Login failed";
+        showGuestUI();
+      } else {
+        loginStatusMsg.innerText = "Login successful!";
+        hideLoginPopup();
+        showUserUI(email);
+      }
+    }
+
+    // Đăng xuất
+    async function logout() {
+      await supabase.auth.signOut();
+      showGuestUI();
+    }
+
+    // Kiểm tra trạng thái đăng nhập khi load trang
+    window.addEventListener('DOMContentLoaded', async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session && session.user) {
+        showUserUI(session.user.email);
+      } else {
+        showGuestUI();
+      }
+    });
+  </script>
 </body>
 </html>
